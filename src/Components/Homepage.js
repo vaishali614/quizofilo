@@ -5,6 +5,7 @@ import Submission from "./Submission"
 import questions from './QuestionsSet'
 import { Image } from 'react-bootstrap'
 import AssessmentImage from "../Assets/Assessment.jpg"
+import { Button } from "react-bootstrap"
 
 const ViewType = {
     Welcome: 'Welcome',
@@ -66,24 +67,24 @@ class Homepage extends Component {
                 <h2 className = {styles.Quizofilo}>
                     Quizofilo
                 </h2>
-                <button 
+                <Button 
                     className = {styles.StartButton} 
                     onClick = {this.startAssessment}
                 >
                     Start
-                </button>
+                </Button>
             </div>
         )
     }
 
     render() {
         switch (this.state.currentView) {
-        case ViewType.Assessment:
-            return this.renderAssessmentPage();
-        case ViewType.Submission:
-            return this.renderSubmissionPage();
-        default:
-            return this.renderWelcomePage();
+            case ViewType.Assessment:
+                return this.renderAssessmentPage();
+            case ViewType.Submission:
+                return this.renderSubmissionPage();
+            default:
+                return this.renderWelcomePage();
         }
     }
 }
