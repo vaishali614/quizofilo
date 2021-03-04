@@ -1,0 +1,129 @@
+.WelcomePage{
+    display: flex;
+    flex-direction: column;
+    margin: 100px 10px;
+}
+
+.Quizofilo {
+    text-align: center;
+    font-size: 5rem;
+    margin-top: 0px;
+}
+
+.Image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.StartButton {
+    margin: auto;
+    margin-bottom: 0px;
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.StartButton:hover {
+    width: 105px;
+    cursor: pointer;
+}
+
+.Question{
+    border: 1px solid black;
+    flex-basis: 70%;
+    margin-left: 50px;
+}
+
+.Header{
+    display: flex;
+    justify-content: center;
+}
+
+.Assessment{
+    display: flex;
+    margin: 100px;
+}
+
+.Title{
+    color: rgb(20, 90, 170);
+    font-size: 1.3rem;
+    padding: 0px 20px 0px 20px;
+}
+
+.Move {
+    border: none;
+    background: none;
+    font-size: 1.3rem;
+}
+
+.Move:hover{
+    cursor: pointer;
+}
+
+.QuestionTitle {
+    text-align: center;
+    font-weight: bold;
+    padding: 30px 5px;
+}
+
+.QuestionOption {
+    margin: auto;
+    padding: 10px;
+}
+
+.TitleOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.ReviewSubmission {
+    border: 1px solid black;
+}
+
+.Attempted {
+    text-align: left;
+    margin-left: 10%;
+    padding: 5px;
+}
+
+.SubmitButton {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 80px;
+    border-radius: 50px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 1rem;
+}
+
+.SubmitButton:hover {
+    width: 85px;
+    cursor: pointer;
+}
+
+.Submission{
+    display: flex;
+    flex-direction: column;
+    margin: 100px 10px;
+    border: 1px solid black;
+}
+
+.SubmissionMessage {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.SubmissionField{
+    margin: auto;
+    padding: 15px;
+}
