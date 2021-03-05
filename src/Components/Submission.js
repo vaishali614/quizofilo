@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import styles from "../CSS/quizofilo.module.css"
 import SubmittedImage from "../Assets/Submitted.png"
+import { Button } from "react-bootstrap"
 
 class Submission extends Component {
     render() {
@@ -29,6 +30,11 @@ class Submission extends Component {
                     <b> Your score: </b> 
                     {' '} {((this.props.userScore / this.props.totalQuestionsCount) * 100).toFixed(2)}
                 </span>
+                <a href = "/">
+                    <Button className = {styles.RestartButton}> 
+                        Restart Quiz 
+                    </Button>
+                </a>
             </div>
         )
     }

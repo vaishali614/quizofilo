@@ -127,3 +127,26 @@
     margin: auto;
     padding: 15px;
 }
+
+a {
+    text-decoration: none;
+}
+
+.RestartButton {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 130px;
+    border-radius: 50px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 1rem;
+}
+
+.RestartButton:hover{
+    width: 135px;
+    cursor: pointer;
+}
