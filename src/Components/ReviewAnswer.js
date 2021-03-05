@@ -1,30 +1,31 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import styles from "../CSS/quizofilo.module.css"
 
-class ReviewSubmission extends React.Component {
-  renderSubmissionDetails = () => {
+class ReviewAnswer extends React.Component {
+  renderAnswers = () => {
     return Object.keys(this.props.submissionData).map((index) => {
       return (
-        <div className={styles.Attempted}>
-          <b>
+        <Container className={styles.Attempted}>
+          <strong>
             A{parseInt(index) + 1}.
-          </b>
+          </strong>
           {' '} {this.props.submissionData[index]}
-        </div>
+        </Container>
       );
     });
   };
 
   render() {
     return (
-      <div className = {styles.ReviewSubmission}>
+      <Container className = {styles.ReviewAnswer}>
         <h6 className = {styles.Title}>
           Review Answers Here
         </h6>
-        {this.renderSubmissionDetails()}
-      </div>
+        {this.renderAnswers()}
+      </Container>
     );
   }
 }
 
-export default ReviewSubmission;
+export default ReviewAnswer;

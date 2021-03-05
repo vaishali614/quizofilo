@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { Container } from "react-bootstrap";
 import styles from "../CSS/quizofilo.module.css"
 
 class QuestionBox extends Component {
@@ -6,7 +7,7 @@ class QuestionBox extends Component {
     this.props.updateSubmissionData(this.props.questionIndex, e);
   };
 
-  renderOptions = () => {
+  getOptions = () => {
     const question = this.props.activeQuestion;
     return question.options.map((option) => {
       return (
@@ -25,12 +26,12 @@ class QuestionBox extends Component {
 
   render() {
     return (
-      <div className = {styles.TitleOptions} >
-        <span className = {styles.QuestionTitle}>
+      <Container className = {styles.TitleOptions} >
+        <div className = {styles.QuestionTitle}>
           Q{this.props.questionIndex + 1}. {this.props.activeQuestion.question}
-        </span>
-        {this.renderOptions()}
-      </div>
+        </div>
+        {this.getOptions()}
+      </Container>
     );
   }
 }

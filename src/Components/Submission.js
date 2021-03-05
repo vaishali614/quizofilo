@@ -1,14 +1,14 @@
 import React, {Component} from "react";
 import styles from "../CSS/quizofilo.module.css"
 import SubmittedImage from "../Assets/Submitted.png"
-import { Button } from "react-bootstrap"
+import { Button, Container, Image } from "react-bootstrap"
 
 class Submission extends Component {
     render() {
         return (
-            <div className = {styles.Submission} >
+            <Container className = {styles.Submission} >
                 <h2>
-                    <img 
+                    <Image 
                         alt = {''} 
                         src = {SubmittedImage} 
                         className = {styles.Image} 
@@ -18,24 +18,24 @@ class Submission extends Component {
                 <h2 className = {styles.SubmissionMessage}>
                     You have successfully submitted the Assessment
                 </h2>
-                <span className = {styles.SubmissionField}> 
-                    <b> Question Asked: </b> 
+                <div className = {styles.SubmissionField}> 
+                    <strong> Question Asked: </strong> 
                     {' '} {this.props.totalQuestionsCount}
-                </span>
-                <span className = {styles.SubmissionField}>
-                    <b> Question Correct: </b>
-                    {' '} {this.props.userScore}
-                </span>
-                <span className = {styles.SubmissionField}> 
-                    <b> Your score: </b> 
-                    {' '} {((this.props.userScore / this.props.totalQuestionsCount) * 100).toFixed(2)}
-                </span>
+                </div>
+                <div className = {styles.SubmissionField}>
+                    <strong> Question Correct: </strong>
+                    {' '} {this.props.totalScore}
+                </div>
+                <div className = {styles.SubmissionField}> 
+                    <strong> Your score: </strong> 
+                    {' '} {((this.props.totalScore / this.props.totalQuestionsCount) * 100).toFixed(2)}
+                </div>
                 <a href = "/">
                     <Button className = {styles.RestartButton}> 
                         Restart Quiz 
                     </Button>
                 </a>
-            </div>
+            </Container>
         )
     }
 }

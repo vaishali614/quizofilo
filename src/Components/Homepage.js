@@ -3,12 +3,11 @@ import Assessment from './Assessment'
 import styles from "../CSS/quizofilo.module.css"
 import Submission from "./Submission"
 import questions from './QuestionsSet'
-import { Image } from 'react-bootstrap'
+import { Container, Image, Button } from 'react-bootstrap'
 import AssessmentImage from "../Assets/Assessment.jpg"
-import { Button } from "react-bootstrap"
 
-const ViewType = {
-    Welcome: 'Welcome',
+const DisplayPage = {
+    Homepage: 'Homepage',
     Assessment: 'Assessment',
     Submission: 'Submission'
 }
@@ -18,29 +17,29 @@ class Homepage extends Component {
         super(props);
         this.state = {
             questions,
-            currentView: ViewType.Welcome,
-            userScore: 0
+            currentView: DisplayPage.Homepage,
+            totalScore: 0
         };
     }
 
     startAssessment = () => {
         this.setState({
-            currentView: ViewType.Assessment
+            currentView: DisplayPage.Assessment
         })
     }
 
     submitAssessment = (score) => {
         this.setState({
-            currentView: ViewType.Submission,
-            userScore: score
+            currentView: DisplayPage.Submission,
+            totalScore: score
         })
     }
 
     renderAssessmentPage = () => {
         return (
             <Assessment 
-                questions={this.state.questions} 
-                onSubmit={this.submitAssessment}
+                questions = {this.state.questions} 
+                onSubmit = {this.submitAssessment}
             />
         )
     }
@@ -49,14 +48,14 @@ class Homepage extends Component {
         return (
             <Submission 
                 totalQuestionsCount = {this.state.questions.length} 
-                userScore={this.state.userScore}
+                totalScore = {this.state.totalScore}
             />
         )
     }
 
     renderWelcomePage = () => {
         return (
-            <div className = {styles.WelcomePage}>
+            <Container className = {styles.WelcomePage}>
                 <h2>
                     <Image 
                         alt = {''} 
@@ -73,15 +72,15 @@ class Homepage extends Component {
                 >
                     Start
                 </Button>
-            </div>
+            </Container>
         )
     }
 
     render() {
         switch (this.state.currentView) {
-            case ViewType.Assessment:
+            case DisplayPage.Assessment:
                 return this.renderAssessmentPage();
-            case ViewType.Submission:
+            case DisplayPage.Submission:
                 return this.renderSubmissionPage();
             default:
                 return this.renderWelcomePage();

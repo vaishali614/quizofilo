@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import QuestionBox from "./QuestionBox";
-import ReviewSubmission from "./ReviewSubmission";
+import ReviewAnswer from "./ReviewAnswer";
 import styles from "../CSS/quizofilo.module.css"
 import { FaRegHandPointLeft, FaRegHandPointRight } from "react-icons/fa";
+import { Button, Container, Jumbotron } from "react-bootstrap";
 
 class Assessment extends Component {
   constructor(props) {
@@ -57,17 +58,17 @@ class Assessment extends Component {
     this.props.onSubmit(score);
   };
 
-  renderNavigationHeader = () => {
+  renderHeader = () => {
     return (
-      <div>
-        <div className={styles.Header}>
+      <Jumbotron>
+        <Container className={styles.Header}>
           {this.state.currentQuestion > 0 && (
-            <button 
+            <Button 
               className = {styles.Move}
               onClick = {this.onPreviousQuestion}
             >
               <FaRegHandPointLeft/>
-            </button>
+            </Button>
           )}
 
           <h6 className = {styles.Title}>
@@ -75,39 +76,39 @@ class Assessment extends Component {
           </h6>
 
           {this.state.currentQuestion < this.props.questions.length - 1 && (
-            <button
+            <Button
               className = {styles.Move}
               onClick = {this.onNextQuestion}
             >
               <FaRegHandPointRight/>
-            </button>
+            </Button>
           )}
-        </div>
-      </div>
+        </Container>
+      </Jumbotron>
     );
   };
 
-  renderNavigationFooter = () => {
+  renderFooter = () => {
     const attemptedQuestions = Object.keys(this.state.submissionData);
     return attemptedQuestions.length === this.props.questions.length ? (
-      <button 
+      <Button 
         className = {styles.SubmitButton} 
         onClick = {this.onSubmit}
       >
         Submit
-      </button>
+      </Button>
     ) : null;
   };
 
   render() {
     return (
-      <div className = {styles.Assessment}>
-        <ReviewSubmission
+      <Container className = {styles.Assessment}>
+        <ReviewAnswer
           submissionData = {this.state.submissionData}
           totalQuestionsCount = {this.props.questions.length}
         />
         <div className = {styles.Question}>
-          {this.renderNavigationHeader()}
+          {this.renderHeader()}
 
           <QuestionBox
             questionIndex = {this.state.currentQuestion}
@@ -118,9 +119,9 @@ class Assessment extends Component {
             }
           />
           
-          {this.renderNavigationFooter()}
+          {this.renderFooter()}
         </div>
-      </div>
+      </Container>
     );
   }
 }
